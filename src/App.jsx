@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Header from "./infrastructure/components/Header";
 import PantallaInicio from "./infrastructure/components/PantallaInicio";
-import PantallaGaleria from "./infrastructure/components/PantallaGaleria";
+import Characteres from "./infrastructure/pages/characteres";
 
 function App() {
   const [modoOscuro, setModoOscuro] = useState(() => {
@@ -34,8 +34,8 @@ function App() {
       />
     )}
     <div>
-      {juegoIniciado ? (
-        <PantallaGaleria />
+      {!juegoIniciado ? (
+        <Characteres />
       ) : (
         <PantallaInicio onStart={() => setJuegoIniciado(true)} />
       )}

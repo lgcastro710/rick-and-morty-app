@@ -4,14 +4,16 @@ import { CharacterService } from "../services/characterServices"
 const useCharacteres = () =>{
   const [personajes, setPersonajes] = useState([]);
   const [infoPagina, setInfoPagina] = useState({});
-  const [query, setQuery] = useState("");
+    const [page, setPage] = useState(1);
+  const [query, setQuery] = useState('');
+    const [params, setParams] = useState('');
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState("");
 
-  const init = async (param) => {
+  const init = async () => {
     try{
         setCargando(true)
-      const {characteres, info} = await CharacterService.getAll(param.toString());
+      const {characteres, info} = await CharacterService.getAll(params);
 
       const start = Date.now(); // Tiempo de inicio
 
@@ -33,17 +35,33 @@ const useCharacteres = () =>{
         setCargando(false)
     }
   } 
+ const handleQueryChange = () => {
+    const _query = new URLSearchParams(query);
+    setParams(new URLSearchParams({
+      ...Object.fromEntries(_query.entries()),
+       page: page,
+    })) 
+  };
+    
+ useEffect( ()  => {
+     handleQueryChange()
+ }, [page, query])
+
+
   
  useEffect( ()  => {
-    init(query) 
- }, [query])
+    init() 
+ }, [params])
 
  return {
     personajes,
     infoPagina,
     cargando,
     error,
-    setQuery
+    query,
+    page,
+    setPage,
+    setQuery,
  }
 
 }

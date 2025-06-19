@@ -8,7 +8,6 @@ export const CharacterService = {
 
     const url = `${API_ENDPOINTS.CHARACTERS}?${query}`;
     const response = await httpClient.get(url);
-         console.log('aki', response);
     return characterAdapter(response);
   },
 

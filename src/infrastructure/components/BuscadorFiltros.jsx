@@ -3,14 +3,13 @@ import SelectEstado from "./SelectEstado";
 import SelectGenero from "./SelectGenero";
 import CheckboxFavoritos from './CheckboxFavoritos';
 
-function BuscadorFiltros({ filtros, setFiltros, personajes, favoritos  }) {
+function BuscadorFiltros({ filtros, setFiltros, favoritos, setFavoritos }) {
 
 const resetFiltros = () => {
   setFiltros({
-    nombre: "",
-    estado: "",
-    genero: "",
-    favoritos: false
+    name: "",
+    status: "",
+    gender: "",
   });
 };
 
@@ -20,26 +19,26 @@ const resetFiltros = () => {
       <input
         type="text"
         placeholder="Buscar por nombre"
-        value={filtros.nombre}
-        onChange={(e) => setFiltros({ ...filtros, nombre: e.target.value })}
+        value={filtros.name}
+        onChange={(e) => setFiltros({ ...filtros, name: e.target.value })}
       />
 
       <SelectEstado
-          valor={filtros.estado}
+          valor={filtros.status}
           onChange={(nuevoValor) =>
-            setFiltros((prev) => ({ ...prev, estado: nuevoValor }))
+            setFiltros((prev) => ({ ...prev, status: nuevoValor }))
           }
         />
       <SelectGenero
-      valor={filtros.genero}
+      valor={filtros.gender}
       onChange={(nuevoValor) =>
-        setFiltros((prev) => ({ ...prev, genero: nuevoValor }))
+        setFiltros((prev) => ({ ...prev, gender: nuevoValor }))
       }
     />
       <CheckboxFavoritos
-      valor={filtros.favoritos}
+      valor={favoritos}
       onChange={(nuevoValor) =>
-        setFiltros((prev) => ({ ...prev, favoritos: nuevoValor }))
+        setFavoritos((prev) => ({ ...prev, favoritos: nuevoValor }))
       }
     />
         <button className="limpiar" onClick={resetFiltros}>🧼 Limpiar filtros</button>
