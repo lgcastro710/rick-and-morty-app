@@ -7,13 +7,10 @@ import Loader from "./Loader";
 
 import "../styles/components/PantallaGaleria.scss"; 
 
-import { CharacterService } from "../services/characterServices";
+import useCharacteres from "../hooks/useCharacteres";
 
 function PantallaGaleria() {
-  const [personajes, setPersonajes] = useState([]);
-  const [infoPagina, setInfoPagina] = useState({});
-  const [cargando, setCargando] = useState(true);
-  const [error, setError] = useState(null);
+  const {personajes, infoPagina, cargando, error, setQuery} = useCharacteres();
   const [pagina, setPagina] = useState(1);
   const [seleccionado, setSeleccionado] = useState(null);
 
@@ -29,44 +26,22 @@ function PantallaGaleria() {
     favoritos: false,
   });
 
+
+  const fetchPersonajes = async () => {
+          const query = new URLSearchParams();
+      if (filtros.nombre) query.append("name", filtros.nombre);
+      if (filtros.estado) query.append("status", filtros.estado);
+      if (filtros.genero) query.append("gender", filtros.genero);
+      query.append("page", pagina);
+    setQuery(query)
+  };
+
   useEffect(() => {
   localStorage.setItem("favoritos", JSON.stringify(favoritos));
   }, [favoritos]);
 
 
   useEffect(() => {
-  const fetchPersonajes = async () => {
-    setCargando(true);
-    try {
-      const query = new URLSearchParams();
-      if (filtros.nombre) query.append("name", filtros.nombre);
-      if (filtros.estado) query.append("status", filtros.estado);
-      if (filtros.genero) query.append("gender", filtros.genero);
-      query.append("page", pagina);
-
-      const start = Date.now(); // Tiempo de inicio
-
-
-      const {characteres, info} = await CharacterService.getAll(query.toString());
-
-      // Forzar que el loading se vea al menos 1200ms
-      const elapsed = Date.now() - start;
-      const delay = Math.max(0, 1200 - elapsed); // Si tardó menos, agregamos delay
-
-      setTimeout(() => {
-        setPersonajes(characteres);
-        setInfoPagina(info);
-        setError(null);
-        setCargando(false);
-      }, delay);
-    } catch (err) {
-      setPersonajes([]);
-      setInfoPagina({});
-      setError(err.message);
-      setCargando(false);
-    }
-  };
-
   fetchPersonajes();
 }, [filtros, pagina]);
 

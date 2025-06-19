@@ -24,7 +24,7 @@ const useEpisodes = () => {
     };
 
     obtenerEpisodios();
-  }, []);
+  }, [episodios]);
 
   return { episodios, isLoading, isError };
 }
