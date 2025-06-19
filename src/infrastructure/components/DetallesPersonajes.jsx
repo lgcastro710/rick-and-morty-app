@@ -1,25 +1,12 @@
-import React, { useState, useEffect } from "react";
+
 import "../styles/components/DetallesPersonajes.scss";
 
-import { EpisodeService } from "../services/episodeServices";
+
+import useEpisodes from "../hooks/useEpisodes";
 
 function DetallesPersonajes({ personaje, cerrar }) {
-  const [episodios, setEpisodios] = useState([]);
+  const {episodios} = useEpisodes();
 
-  useEffect(() => {
-    if (!personaje) return;
-
-    const obtenerEpisodios = async () => {
-
-        const ids = personaje.episodes.map(url => url.split("/").pop()).join(",");
-        const {episodes} = await EpisodeService.getAll(ids);
-
-        setEpisodios(episodes);
-    
-    };
-
-    obtenerEpisodios();
-  }, [personaje]);
 
   if (!personaje) return null;
 
