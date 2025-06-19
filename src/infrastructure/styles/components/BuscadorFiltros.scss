@@ -1,0 +1,71 @@
+$accent-color: #5effa8;
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+   max-width: 1200px;
+    margin: 0 auto;
+
+// Estilos base para inputs y selects
+input[type="text"],
+select {
+  background-color: var(--bg-color);
+  color: var(--neon-accent-green);
+  border: 2px solid #00ff9f;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  font-family: 'Comic Neue', sans-serif;
+  outline: none;
+  transition: all 0.3s ease;
+
+  &:focus {
+    background-color: #222;
+    border-color: #38f7f4;
+    box-shadow: 0 0 10px #38f7f4;
+  }
+}
+
+// Estilos para options dentro del select
+select option {
+  background-color: var(--bg-color);
+  color: var(--neon-accent-green);
+  font-family: 'Comic Neue', sans-serif;
+}
+
+// Checkbox de favoritos (si es un input tipo checkbox)
+input[type="checkbox"] {
+  accent-color: #ffdf00;
+  width: 18px;
+  height: 18px;
+}
+
+
+}
+.limpiar {
+  background: var(--neon-accent-green);
+  border: 2px solid var(--neon-accent-blue);
+  color: #000;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: 'Orbitron', sans-serif;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 8px var(--neon-accent-green);
+
+  &:hover {
+    background: var(--neon-accent-red);
+    box-shadow: 0 0 12px var(--neon-accent-red);
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.98);
+    box-shadow: 0 0 4px var(--neon-accent-green);
+  }
+}
+

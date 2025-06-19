@@ -1,0 +1,52 @@
+.checkbox-favoritos {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+  color: #fff;
+ font-family: 'Comic Neue', sans-serif;
+  input {
+    display: none;
+  }
+
+  .switch {
+    position: relative;
+    width: 50px;
+    height: 26px;
+    background: #222;
+    border: 2px solid var(--neon-accent-green);
+    border-radius: 30px;
+    transition: background 0.3s, box-shadow 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 3px;
+
+    .icon {
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      width: 22px;
+      height: 22px;
+      color: #888;
+      transition: all 0.3s ease;
+    }
+  }
+
+  input:checked + .switch {
+    background: var(--neon-accent-green);
+    box-shadow: 0 0 10px var(--neon-accent-green);
+
+    .icon {
+      left: 26px;
+      color: gold;
+    }
+  }
+
+  .label-text {
+    font-size: 14px;
+    font-family: 'Orbitron', sans-serif;
+    color: var(--text-color);
+  }
+}

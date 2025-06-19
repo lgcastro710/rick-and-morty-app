@@ -1,0 +1,42 @@
+.select-personalizado {
+  position: relative;
+  width: 220px;
+  font-family: 'Comic Neue', sans-serif;
+
+  .seleccion {
+    background: #1b1b1b;
+    border: 2px solid #00ff9f;
+    padding: 0.6rem 1rem;
+    color: #00ff9f;
+    cursor: pointer;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .opciones {
+    position: absolute;
+    top: 110%;
+    width: 100%;
+    background: #111;
+    border: 2px solid #00ff9f;
+    border-radius: 8px;
+    z-index: 100;
+    overflow: hidden;
+
+    .opcion {
+      padding: 0.5rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #00ff9f;
+      cursor: pointer;
+      transition: background 0.2s;
+
+      &:hover {
+        background: #222;
+      }
+    }
+  }
+}
