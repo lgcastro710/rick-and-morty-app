@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "../styles/components/DetallesPersonajes.scss";
 
+import { EpisodeService } from "../services/episodeServices";
+
 function DetallesPersonajes({ personaje, cerrar }) {
   const [episodios, setEpisodios] = useState([]);
 
@@ -8,15 +10,12 @@ function DetallesPersonajes({ personaje, cerrar }) {
     if (!personaje) return;
 
     const obtenerEpisodios = async () => {
-      try {
-        const urls = personaje.episode;
-        const ids = urls.map(url => url.split("/").pop()).join(",");
-        const res = await fetch(`https://rickandmortyapi.com/api/episode/${ids}`);
-        const data = await res.json();
-        setEpisodios(Array.isArray(data) ? data : [data]);
-      } catch (err) {
-        console.error("Error al obtener episodios", err);
-      }
+
+        const ids = personaje.episodes.map(url => url.split("/").pop()).join(",");
+        const {episodes} = await EpisodeService.getAll(ids);
+
+        setEpisodios(episodes);
+    
     };
 
     obtenerEpisodios();
@@ -35,8 +34,8 @@ function DetallesPersonajes({ personaje, cerrar }) {
                 <p><strong>Estado:</strong> {personaje.status}</p>
                 <p><strong>Especie:</strong> {personaje.species}</p>
                 <p><strong>Género:</strong> {personaje.gender}</p>
-                <p><strong>Origen:</strong> {personaje.origin.name}</p>
-                <p><strong>Ubicación:</strong> {personaje.location.name}</p>
+                <p><strong>Origen:</strong> {personaje.origin}</p>
+                <p><strong>Ubicación:</strong> {personaje.location}</p>
            </div>
             <div className="episodios">
             <strong>Aparece en:</strong>

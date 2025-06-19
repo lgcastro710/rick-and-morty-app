@@ -1,7 +1,7 @@
 export const characterAdapter = ({info, results}) => {
 
     const characteres = [];
-console.log('results', results);
+
   results.forEach((item) => {
     const character = {
       id: item.id,
@@ -11,6 +11,9 @@ console.log('results', results);
       species: item.species || "",
       type: item.type || "",
       image: item.image || "",
+      origin: item.origin?.name || "",
+      location: item.location?.name || "",
+      episodes: item.episode || [],
 
     };
     characteres.push(character);

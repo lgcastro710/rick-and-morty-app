@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
+
 import BuscadorFiltros from "./BuscadorFiltros";
-import "../styles/components/PantallaGaleria.scss"; 
 import CardPersonaje from './CardPersonaje';
 import DetallesPersonajes from "./DetallesPersonajes"; 
 import Loader from "./Loader"; 
+
+import "../styles/components/PantallaGaleria.scss"; 
+
 import { CharacterService } from "../services/characterServices";
 
 function PantallaGaleria() {
@@ -42,10 +45,6 @@ function PantallaGaleria() {
       query.append("page", pagina);
 
       const start = Date.now(); // Tiempo de inicio
-
-      // const res = await fetch(`https://rickandmortyapi.com/api/character/?${query.toString()}`);
-      // if (!res.ok) throw new Error("No se encontraron personajes.");
-      // const data = await res.json();
 
 
       const {characteres, info} = await CharacterService.getAll(query.toString());
