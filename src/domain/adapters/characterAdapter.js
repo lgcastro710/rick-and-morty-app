@@ -18,5 +18,18 @@ export const characterAdapter = ({info, results}) => {
     };
     characteres.push(character);
   });
-  return { characteres, total: Number(results?.length || 0) ?? 0, info: info || {} };
+
+  const infoPages = {
+    count: info.count || 0,
+    next: info.next || '',
+    pages: info.pages || 0, 
+    prev: info.prev || ''
+  };
+
+
+  return { 
+    characteres, 
+    total: results?.length, 
+    info: infoPages 
+  };
 };

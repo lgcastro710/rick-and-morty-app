@@ -1,6 +1,4 @@
 
-
-
 export const fetchClient = {
     get: async (url, config = {}) => {
         try {

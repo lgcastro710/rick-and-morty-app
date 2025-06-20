@@ -8,17 +8,14 @@ const useEpisodes = (ids) => {
 
   useEffect(() => {
     const obtenerEpisodios = async () => {
-        setIsLoading(true);
+      setIsLoading(true);
       try {
-      
         const { episodes } = await EpisodeService.getAll(ids);
         setEpisodios(episodes);
-    
       } catch (err) {
         console.error("Error fetching episodes:", err);
         setIsError(err);
-      }
-      finally {
+      } finally {
         setIsLoading(false);
       }
     };
@@ -27,6 +24,6 @@ const useEpisodes = (ids) => {
   }, [ids]);
 
   return { episodios, isLoading, isError };
-}
+};
 
 export default useEpisodes;

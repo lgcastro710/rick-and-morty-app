@@ -34,7 +34,7 @@ function App() {
       />
     )}
     <div>
-      {!juegoIniciado ? (
+      {juegoIniciado ? (
         <Characteres />
       ) : (
         <PantallaInicio onStart={() => setJuegoIniciado(true)} />

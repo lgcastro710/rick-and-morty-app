@@ -1,18 +1,19 @@
 import { useEffect, useState } from "react";
 
 import BuscadorFiltros from "./BuscadorFiltros";
-import CardPersonaje from './CardPersonaje';
-import DetallesPersonajes from "./DetallesPersonajes"; 
-import Loader from "./Loader"; 
+import CardPersonaje from "./CardPersonaje";
+import Loader from "./Loader";
 
-import "../styles/components/PantallaGaleria.scss"; 
-
+import "../styles/components/PantallaGaleria.scss";
 
 function PantallaGaleria({ personajes, cargando, error, setQuery, setPage }) {
+  const [switchFavorito, setSwitchFavorito] = useState(false);
   const [favoritos, setFavoritos] = useState(() => {
-  const guardados = localStorage.getItem("favoritos");
-  return guardados ? JSON.parse(guardados) : [];
-});
+    const guardados = localStorage.getItem("favoritos");
+    return guardados ? JSON.parse(guardados) : [];
+  });
+
+  const [characteresFilteres, setCharacteresFilteres] = useState([]);
 
   const [filtros, setFiltros] = useState({
     name: "",
@@ -21,48 +22,69 @@ function PantallaGaleria({ personajes, cargando, error, setQuery, setPage }) {
   });
 
   useEffect(() => {
-  localStorage.setItem("favoritos", JSON.stringify(favoritos));
-  }, [favoritos]);
-
+    setCharacteresFilteres(personajes);
+  }, [personajes]);
 
   useEffect(() => {
-    setQuery(filtros)
-  setPage(1); 
-}, [filtros]);
+    if (switchFavorito) {
+      const filtered = personajes.filter((item) => {
+        return favoritos.find((favorite) => favorite.id === item.id);
+      });
+      setCharacteresFilteres(filtered);
+    } else {
+      setCharacteresFilteres(personajes);
+    }
+  }, [switchFavorito]);
 
+  useEffect(() => {
+    localStorage.setItem("favoritos", JSON.stringify(favoritos));
+  }, [favoritos]);
 
+  useEffect(() => {
+    setQuery(filtros);
+    setPage(1);
+  }, [filtros]);
 
   const toggleFavorito = (personaje) => {
-  const existe = favoritos.find(f => f.id === personaje.id);
-  if (existe) {
-    setFavoritos(favoritos.filter(f => f.id !== personaje.id));
-  } else {
-    setFavoritos([...favoritos, personaje]);
-  }
-};
-
+    const existe = favoritos.find((f) => f.id === personaje.id);
+    if (existe) {
+      setFavoritos(favoritos.filter((f) => f.id !== personaje.id));
+    } else {
+      setFavoritos([...favoritos, personaje]);
+    }
+  };
 
   return (
     <div className="pantalla-galeria">
+      <BuscadorFiltros
+        filtros={filtros}
+        setFiltros={setFiltros}
+        switchFavorito={switchFavorito}
+        setSwitchFavorito={setSwitchFavorito}
+      />
 
-      <BuscadorFiltros filtros={filtros} setFiltros={setFiltros} personajes={personajes}  favoritos={favoritos} />
+      {cargando ? (
+        <Loader />
+      ) : (
+        <div className="galeria">
+          {characteresFilteres.length ? (
+            characteresFilteres.map((p) => (
+              <CardPersonaje
+                key={p.id}
+                personaje={p}
+                toggleFavorito={toggleFavorito}
+                favoritos={favoritos}
+              />
+            ))
+          ) : (
+            <h1>aqui</h1>
+          )}
+        </div>
+      )}
 
-      {cargando && <Loader />}
       {error && <p className="error">{error}</p>}
-
-      <div className="galeria">
-        {personajes.map(p => (
-          <CardPersonaje
-          key={p.id}
-          personaje={p}
-          toggleFavorito={toggleFavorito}
-          favoritos={favoritos}
-        />
-        ))}
-      </div>
     </div>
   );
 }
-
 
 export default PantallaGaleria;

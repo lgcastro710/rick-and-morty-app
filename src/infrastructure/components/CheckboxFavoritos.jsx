@@ -1,5 +1,5 @@
-import { FaStar } from 'react-icons/fa';
-import '../styles/components/CheckboxFavoritos.scss';
+import { FaStar } from "react-icons/fa";
+import "../styles/components/CheckboxFavoritos.scss";
 
 export default function CheckboxFavoritos({ valor, onChange }) {
   return (
