@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { EpisodeService } from "../services/episodeServices";
 
-const useEpisodes = () => {
+const useEpisodes = (ids) => {
   const [episodios, setEpisodios] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
@@ -10,9 +10,9 @@ const useEpisodes = () => {
     const obtenerEpisodios = async () => {
         setIsLoading(true);
       try {
-        const ids = episodios?.map(url => url.split("/").pop()).join(",");
-        const { episodes: fetchedEpisodes } = await EpisodeService.getAll(ids);
-        setEpisodios(fetchedEpisodes);
+      
+        const { episodes } = await EpisodeService.getAll(ids);
+        setEpisodios(episodes);
     
       } catch (err) {
         console.error("Error fetching episodes:", err);
@@ -24,7 +24,7 @@ const useEpisodes = () => {
     };
 
     obtenerEpisodios();
-  }, [episodios]);
+  }, [ids]);
 
   return { episodios, isLoading, isError };
 }

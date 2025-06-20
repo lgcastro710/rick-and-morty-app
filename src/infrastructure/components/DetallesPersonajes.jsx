@@ -5,7 +5,8 @@ import "../styles/components/DetallesPersonajes.scss";
 import useEpisodes from "../hooks/useEpisodes";
 
 function DetallesPersonajes({ personaje, cerrar }) {
-  const {episodios} = useEpisodes();
+  const ids = personaje.episodes?.map(url => url.split("/").pop()).join(",");
+  const {episodios, isLoading} = useEpisodes(ids);
 
 
   if (!personaje) return null;
@@ -27,6 +28,8 @@ function DetallesPersonajes({ personaje, cerrar }) {
             <div className="episodios">
             <strong>Aparece en:</strong>
                 <div className="episodios-list">
+                  {isLoading && ( <p>Cargando episodios...</p> )
+                  }
                     <ul>
                         {episodios.map(ep => (
                         <li key={ep.id}>{ep.episode} - {ep.name}</li>

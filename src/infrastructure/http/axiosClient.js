@@ -2,10 +2,11 @@
 import axios from 'axios';
 
 export const axiosClient = {
-  get: (url, config = {}) => axios.get(url, config),
+  get: async (url, config = {})  =>{
+       const response = await  axios.get(url, config)
+       return response.data;
+  },
   post: (url, data, config = {}) => axios.post(url, data, config),
   put: (url, data, config = {}) => axios.put(url, data, config),
   delete: (url, config = {}) => axios.delete(url, config),
 };
-
-export const httpClient = axiosClient;

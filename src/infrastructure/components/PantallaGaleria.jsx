@@ -9,8 +9,6 @@ import "../styles/components/PantallaGaleria.scss";
 
 
 function PantallaGaleria({ personajes, cargando, error, setQuery, setPage }) {
-  const [seleccionado, setSeleccionado] = useState(null);
-
   const [favoritos, setFavoritos] = useState(() => {
   const guardados = localStorage.getItem("favoritos");
   return guardados ? JSON.parse(guardados) : [];
@@ -57,15 +55,11 @@ function PantallaGaleria({ personajes, cargando, error, setQuery, setPage }) {
           <CardPersonaje
           key={p.id}
           personaje={p}
-          setSeleccionado={setSeleccionado}
           toggleFavorito={toggleFavorito}
           favoritos={favoritos}
         />
         ))}
       </div>
-
-     <DetallesPersonajes personaje={seleccionado} cerrar={() => setSeleccionado(null)} />
-
     </div>
   );
 }
