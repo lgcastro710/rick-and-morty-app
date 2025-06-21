@@ -2,7 +2,8 @@
 
 Una Single Page Application (SPA) desarrollada en React que consume la API oficial de Rick and Morty para mostrar personajes, sus detalles y episodios en los que aparecen. Permite filtrar, buscar, marcar como favoritos y navegar cómodamente entre temporadas.
 
-![rick-and-morty-app](https://lgcastro710.github.io/rick-and-morty-app/src/infrastructure/assets/logo-r&m.png)
+![rick-and-morty-app](https://lgcastro710.github.io/rick-and-morty-app/logo-r&m.png)
+
 
 ## 🌐 Demo
 
