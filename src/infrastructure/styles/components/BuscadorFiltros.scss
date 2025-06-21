@@ -17,8 +17,8 @@ $accent-color: #5effa8;
 input[type="text"],
 select {
   background-color: var(--bg-color);
-  color: var(--neon-accent-green);
-  border: 2px solid #00ff9f;
+  color: var(--text-input) !important;
+  border: 2px solid var(--neon-accent-green);
   border-radius: 8px;
   padding: 0.6rem 1rem;
   font-size: 1rem;
@@ -50,20 +50,20 @@ input[type="checkbox"] {
 
 }
 .limpiar {
-  background: var(--neon-accent-green);
-  border: 2px solid var(--neon-accent-blue);
-  color: #000;
-  font-weight: bold;
-  padding: 8px 16px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-family: 'Orbitron', sans-serif;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 8px var(--neon-accent-green);
+    background: linear-gradient(135deg, #ff00cc, #111);
+    color: #00ff91;
+    border-radius: 999px;
+    padding: 0.6rem 1.5rem;
+    font-size: 16px;
+    text-shadow: 0 0 2px #fff;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    border : none;
+    box-shadow: 0 0 8px var(--neon-accent-magenta) 0.2s ease;
 
   &:hover {
     background: var(--neon-accent-red);
-    box-shadow: 0 0 12px var(--neon-accent-red);
+    box-shadow: 0 0 12px var(--neon-accent-magenta);
     transform: scale(1.05);
   }
 

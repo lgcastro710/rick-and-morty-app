@@ -99,33 +99,39 @@
   }
 
   .acordeon-contenido {
-    padding: 1rem;
+    padding: 0.2rem 1rem 1rem;
     background-color: #1a1a1a;
     border-top: 1px solid #444;
     border-radius: 0 0 8px 8px;
   }
 }
 .contenedor-acordeones {
-  max-height: 175px; 
+  max-height: 180px; 
   overflow-y: auto;
   padding-right: 0.5rem;
-
+  margin-top: -10px;
   // Scroll personalizado opcional
   scrollbar-width: thin;
-  scrollbar-color: #00ff9a #222;
+  scrollbar-color: var(--neon-accent-green) #222;
 
   &::-webkit-scrollbar {
     width: 8px;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: #00ff9a;
+    background-color: var(--neon-accent-green);
     border-radius: 4px;
   }
 
   &::-webkit-scrollbar-track {
     background-color: #222;
   }
+  
+  h3{
+    margin: 0 0 5px;
+    text-align: left;
+  }
+
 }
 
 .chips-container {
@@ -141,7 +147,7 @@
 
 .chip {
     background: linear-gradient(135deg, #ff00cc, #111);
-    color: #00ff91;
+    color: var(--neon-accent-green);
     border-radius: 999px;
     padding: 0.4rem 0.8rem;
     font-size: 13px;
@@ -156,22 +162,22 @@
   border-collapse: collapse;
   border-spacing: 0;
   background: #1a1a1a;
-  color: #00ff91;
+  color: var(--neon-accent-green);
   font-family: 'Orbitron', 'Segoe UI', sans-serif;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 0 20px #00ff91aa;
+  box-shadow: 0 0 20px var(--neon-accent-green);
 
   thead {
     background-color: #0e0e0e;
 
     th {
-      color: #00ff91;
+      color: var(--neon-accent-green);
       text-transform: uppercase;
       letter-spacing: 1px;
       font-weight: 700;
       padding: 1rem;
-      border-bottom: 2px solid #00ff91aa;
+      border-bottom: 2px solid var(--neon-accent-green);
     }
   }
 
@@ -197,7 +203,7 @@
  .popup-card {
   max-width: 300px;
   img {
-    width: auto;
+    width: 8rem;
   }
   h2{
     margin: 0;

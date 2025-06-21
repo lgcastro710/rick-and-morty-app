@@ -6,7 +6,7 @@ import Banner from "./infrastructure/components/Banner";
 function App() {
   const [modoOscuro, setModoOscuro] = useState(() => {
     const guardado = localStorage.getItem("modoOscuro");
-    return guardado === "true";
+    return guardado !== null ? guardado === "true" : true;
   });
 
   const [juegoIniciado] = useState(false);

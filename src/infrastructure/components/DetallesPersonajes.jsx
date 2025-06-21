@@ -42,6 +42,7 @@ function DetallesPersonajes({ personaje, cerrar }) {
             <tr>
               <td colSpan="5">
                 <div className="contenedor-acordeones">
+                  <h3>Episodios:</h3>
                   {seasonsGroup().map(({ season, episodes }) => (
                     <div key={season} className="acordeon">
                       <button
@@ -92,6 +93,7 @@ function DetallesPersonajes({ personaje, cerrar }) {
               </p>
             </div>
             <div className="contenedor-acordeones">
+              <h3>Episodios:</h3>
               {seasonsGroup().map(({ season, episodes }) => (
                 <div key={season} className="acordeon">
                   <button

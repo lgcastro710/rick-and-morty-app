@@ -5,7 +5,7 @@
 
   .seleccion {
     background: var(--bg-color);
-    border: 2px solid #00ff9f;
+    border: 2px solid var( --neon-accent-green);
     padding: 0.6rem 1rem;
     color: var(--text-input);
     cursor: pointer;
@@ -20,7 +20,7 @@
     top: 110%;
     width: 100%;
     background: var(--bg-color);
-    border: 2px solid #00ff9f;
+    border: 2px solid var( --neon-accent-green);
     border-radius: 8px;
     z-index: 100;
     overflow: hidden;
@@ -30,7 +30,7 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      color: #00ff9f;
+      color: var(--text-input);
       cursor: pointer;
       transition: background 0.2s;
 

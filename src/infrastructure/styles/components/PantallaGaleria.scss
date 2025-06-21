@@ -40,18 +40,22 @@
   margin: 2rem;
 
   button {
-    background-color: var(--neon-accent-green);
-    border: none;
-    color: #fff;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    min-width: 100px;
-    cursor: pointer;
-    font-weight: bold;
+    background: linear-gradient(135deg, #ff00cc, #111);
     display: flex;
     align-items: center;
+    justify-content: center;
+    color: #00ff91;
+    border-radius: 999px;
+    padding: 0.6rem 1.5rem;
+    font-size: 16px;
+    text-shadow: 0 0 2px #fff;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    border : none;
+    box-shadow: 0 0 8px var(--neon-accent-magenta) 0.2s ease;
      span{
         margin: 0 0.5rem;
+        color: var(--text-input);
      }
      p{
         margin: 0;

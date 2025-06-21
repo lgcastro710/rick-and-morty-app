@@ -51,7 +51,7 @@
     box-sizing: border-box;
 
     button{
-          background: linear-gradient(135deg, #ff00cc, #111);
+    background: linear-gradient(135deg, #ff00cc, #111);
     color: #00ff91;
     border-radius: 999px;
     padding: 0.6rem 1.5rem;
@@ -60,6 +60,10 @@
     cursor: pointer;
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease;
     border : none;
+    &:hover {
+    box-shadow: 0 0 12px var(--neon-accent-magenta);
+    transform: scale(1.05);
+  }
     }
 }
 .estado {
