@@ -1,0 +1,82 @@
+.banner{
+    width: 100%;
+    height: 100vh;
+    background-image: url('../../assets/rick-and-morty-hd.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        position: relative;
+}
+.video{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+.degradade{
+background: #000000;
+background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 55%, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 1) 100%);
+    width: 100%;
+    height: 20vh;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.logo-inicio {
+    width: 25%;
+    position: absolute;
+    left: 40%;
+    bottom: 140px;
+}
+.arrow-bounce {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  background: url('/ruta/a/la/flecha.svg') no-repeat center center;
+  background-size: contain;
+  animation: bounce 1.8s infinite;
+  filter: drop-shadow(0 2px 4px var(--neon-accent-magenta));
+  position: absolute;
+  bottom: 100px;
+  z-index: 1;
+  left: 50%;
+  color: var(--neon-accent-magenta);
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(10px);
+  }
+  60% {
+    transform: translateY(5px);
+  }
+}
+
+@media screen and (max-width: 768px) {
+.banner{
+    width: 100%;
+    height: 30vh;
+    background-image: url('../../assets/rick-and-morty-hd.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        position: relative;
+}
+.degradade{
+    height: 5vh;
+}
+.logo-inicio {
+    width: 50%;
+    left: 25%;
+    bottom: 50px;
+}
+.arrow-bounce {
+  bottom: 15px;
+  left: 43%;
+}
+
+}

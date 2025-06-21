@@ -1,5 +1,5 @@
 import React from "react";
-import portalGif from "../assets/loader-portal.gif"; // ajustá la ruta según tu estructura
+import portalGif from "../assets/loader-portal-unscreen.gif";
 import "../styles/components/Loader.scss";
 
 const Loader = () => {

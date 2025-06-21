@@ -1,15 +1,19 @@
 $accent-color: #5effa8;
+.buscador-filtros {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  background-color: var(--bg-color);
+}
 .filtros {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
-  margin-bottom: 2rem;
-  padding: 0 1rem;
-   max-width: 1200px;
-    margin: 0 auto;
 
-// Estilos base para inputs y selects
+
 input[type="text"],
 select {
   background-color: var(--bg-color);
@@ -23,20 +27,20 @@ select {
   transition: all 0.3s ease;
 
   &:focus {
-    background-color: #222;
+    background-color: var(--bg-color);
     border-color: #38f7f4;
     box-shadow: 0 0 10px #38f7f4;
   }
 }
 
-// Estilos para options dentro del select
+
 select option {
   background-color: var(--bg-color);
   color: var(--neon-accent-green);
   font-family: 'Comic Neue', sans-serif;
 }
 
-// Checkbox de favoritos (si es un input tipo checkbox)
+
 input[type="checkbox"] {
   accent-color: #ffdf00;
   width: 18px;

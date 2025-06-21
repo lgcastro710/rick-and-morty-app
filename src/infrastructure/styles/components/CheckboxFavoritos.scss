@@ -14,7 +14,7 @@
     position: relative;
     width: 50px;
     height: 26px;
-    background: #222;
+    background: var(--bg-color);
     border: 2px solid var(--neon-accent-green);
     border-radius: 30px;
     transition: background 0.3s, box-shadow 0.3s;

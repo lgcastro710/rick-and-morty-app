@@ -1,21 +1,24 @@
-// src/styles/_variables.scss
+
 
 :root {
   --bg-color: #f1f1f1;
   --text-color: #222222;
+  --text-input: #222222;
   --card-bg: #f5f5f5;
   --border-color: #cccccc;
   --neon-accent-green: #5effa8;
   --neon-accent-blue: #00b5cc;
   --neon-accent-red: #ff4d4d;
+  --neon-accent-magenta: #e762d7ff;
   --clr-neon: #b2df28;
   --clr-bg: #00b5cc;
   --transition-time: 0.3s;
 }
 
 .dark-mode {
-  --bg-color: #121212;
+  --bg-color: #000000;
   --text-color: #f1f1f1;
+  --text-input: #5effa8;
   --card-bg: #1f1f1f;
   --border-color: #444444;
   --neon-accent-green: #5effa8;

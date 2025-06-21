@@ -1,6 +1,5 @@
-export const characterAdapter = ({info, results}) => {
-
-    const characteres = [];
+export const characterAdapter = ({ info, results }) => {
+  const characteres = [];
 
   results.forEach((item) => {
     const character = {
@@ -14,22 +13,20 @@ export const characterAdapter = ({info, results}) => {
       origin: item.origin?.name || "",
       location: item.location?.name || "",
       episodes: item.episode || [],
-
     };
     characteres.push(character);
   });
 
   const infoPages = {
     count: info.count || 0,
-    next: info.next || '',
-    pages: info.pages || 0, 
-    prev: info.prev || ''
+    next: info.next || "",
+    pages: info.pages || 0,
+    prev: info.prev || "",
   };
 
-
-  return { 
-    characteres, 
-    total: results?.length, 
-    info: infoPages 
+  return {
+    characteres,
+    total: results?.length,
+    info: infoPages,
   };
 };

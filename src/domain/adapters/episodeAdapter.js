@@ -1,8 +1,7 @@
 export const episodeAdapter = (results) => {
+  const episodes = [];
 
-    const episodes = [];
-
-    results.forEach((item) => {
+  results.forEach((item) => {
     const episode = {
       id: item.id,
       name: item.name || "",
@@ -10,6 +9,6 @@ export const episodeAdapter = (results) => {
     };
     episodes.push(episode);
   });
-  
-  return { episodes, total:results?.length || 0 };
+
+  return { episodes, total: results?.length || 0 };
 };

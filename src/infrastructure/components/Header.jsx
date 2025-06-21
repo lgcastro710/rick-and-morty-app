@@ -1,6 +1,6 @@
-import React from 'react';
-import logo from '../assets/logo-r&m.png';
-import '../styles/components/Header.scss';
+import React from "react";
+import logo from "../assets/logo-r&m.png";
+import "../styles/components/Header.scss";
 
 const Header = ({ modoOscuro, toggleModoOscuro }) => {
   return (
@@ -10,7 +10,7 @@ const Header = ({ modoOscuro, toggleModoOscuro }) => {
       </div>
 
       <button className="toggle-modo" onClick={toggleModoOscuro}>
-        {modoOscuro ? '🌞' : '🌚'}
+        {modoOscuro ? "🌞" : "🌚"}
       </button>
     </header>
   );

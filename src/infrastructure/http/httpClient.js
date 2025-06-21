@@ -1,5 +1,5 @@
-// import { fetchClient } from "./fetchClient";
-import { axiosClient } from "./axiosClient";
+import { fetchClient } from "./fetchClient";
+// import { axiosClient } from "./axiosClient";
 
-// export default fetchClient;
-export default axiosClient;
+export default fetchClient;
+// export default axiosClient;

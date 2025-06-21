@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import nopersonaje from "../assets/no-se-encontro.png";
 import BuscadorFiltros from "./BuscadorFiltros";
 import CardPersonaje from "./CardPersonaje";
 import Loader from "./Loader";
@@ -77,7 +77,10 @@ function PantallaGaleria({ personajes, cargando, error, setQuery, setPage }) {
               />
             ))
           ) : (
-            <h1>aqui</h1>
+            <div className="no-results">
+              <img src={nopersonaje} alt="" />
+              <p>No se encontraron personajes.</p>
+            </div>
           )}
         </div>
       )}

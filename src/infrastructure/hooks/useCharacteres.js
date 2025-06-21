@@ -21,10 +21,9 @@ const useCharacteres = () => {
     } catch (err) {
       setError(err);
     } finally {
-      const start = Date.now(); // Tiempo de inicio
-      // Forzar que el loading se vea al menos 1200ms
+      const start = Date.now();
       const elapsed = Date.now() - start;
-      const delay = Math.max(0, 1200 - elapsed); // Si tardó menos, agregamos delay
+      const delay = Math.max(0, 1200 - elapsed);
 
       setTimeout(() => {
         setCargando(false);

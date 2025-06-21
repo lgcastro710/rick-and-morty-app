@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import Header from "./infrastructure/components/Header";
-import PantallaInicio from "./infrastructure/components/PantallaInicio";
 import Characteres from "./infrastructure/pages/characteres";
+import Banner from "./infrastructure/components/Banner";
 
 function App() {
   const [modoOscuro, setModoOscuro] = useState(() => {
     const guardado = localStorage.getItem("modoOscuro");
-    return guardado === "true"; // convertimos a boolean
+    return guardado === "true";
   });
 
-  const [juegoIniciado, setJuegoIniciado] = useState(false);
+  const [juegoIniciado] = useState(false);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -22,24 +22,19 @@ function App() {
   }, [modoOscuro]);
 
   const toggleModoOscuro = () => {
-    setModoOscuro(prev => !prev);
+    setModoOscuro((prev) => !prev);
   };
 
   return (
     <>
-     {juegoIniciado && (
-      <Header
-        modoOscuro={modoOscuro}
-        toggleModoOscuro={() => setModoOscuro((prev) => !prev)}
-      />
-    )}
-    <div>
-      {juegoIniciado ? (
-        <Characteres />
-      ) : (
-        <PantallaInicio onStart={() => setJuegoIniciado(true)} />
+      {!juegoIniciado && (
+        <Header
+          modoOscuro={modoOscuro}
+          toggleModoOscuro={() => setModoOscuro((prev) => !prev)}
+        />
       )}
-    </div>
+      <Banner />
+      <Characteres />
     </>
   );
 }

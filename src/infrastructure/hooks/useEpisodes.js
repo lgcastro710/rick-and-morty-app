@@ -23,7 +23,23 @@ const useEpisodes = (ids) => {
     obtenerEpisodios();
   }, [ids]);
 
-  return { episodios, isLoading, isError };
+  function seasonsGroup() {
+    const agrupado = episodios?.reduce((acc, ep) => {
+      const temporada = ep.episode.substring(0, 3);
+      if (!acc[temporada]) {
+        acc[temporada] = [];
+      }
+      acc[temporada].push(ep);
+      return acc;
+    }, {});
+
+    return Object.entries(agrupado).map(([season, episodes]) => ({
+      season,
+      episodes,
+    }));
+  }
+
+  return { episodios, isLoading, isError, seasonsGroup };
 };
 
 export default useEpisodes;
